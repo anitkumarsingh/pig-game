@@ -1,14 +1,15 @@
 var scores, activePlayer, roundScores;
 scores = [0, 0];
 activePlayer = 0;
-roundScores = 1;
+roundScores = 0;
 
-// document.querySelector('#current--' + activePlayer).textContent = dices;
 var x = document.querySelector('#score--' + activePlayer).textContent;
-
+document.getElementById('score--0').textContent = '0';
+document.getElementById('score--1').textContent = '0';
+document.getElementById('current--0').textContent = '0';
+document.getElementById('current--1').textContent = '0';
 // hide dices at the begining
 document.querySelector('.dice').style.display = 'none';
-console.log(x);
 
 document.querySelector('.btn--roll').addEventListener('click', function () {
   // 1 Generate random number
@@ -18,4 +19,11 @@ document.querySelector('.btn--roll').addEventListener('click', function () {
   var diceDOM = document.querySelector('.dice');
   diceDOM.style.display = 'block';
   diceDOM.src = '/img/dice-' + dices + '.png';
+  if (dices !== 1) {
+    roundScores += dices;
+    document.querySelector('#current--' + activePlayer).textContent =
+      roundScores;
+  } else {
+    // do somthing else
+  }
 });
