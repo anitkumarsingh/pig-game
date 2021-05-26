@@ -25,5 +25,11 @@ document.querySelector('.btn--roll').addEventListener('click', function () {
       roundScores;
   } else {
     // do somthing else
+    activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+    roundScores = 0;
+    document.getElementById('current--0').textContent = '0';
+    document.getElementById('current--1').textContent = '0';
+    document.querySelector('.player--0').classList.toggle('player--active');
+    document.querySelector('.player--1').classList.toggle('player--active');
   }
 });
